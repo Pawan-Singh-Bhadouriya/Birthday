@@ -174,9 +174,14 @@ h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #f1c40f; 
    ====================================================== */
 @media (max-width: 768px) {
     section { 
-        min-height: 100vh; /* Har section poori screen cover karega */
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
+        /* Isse sab kuch screen ke ekdum center mein aa jayega */
+        justify-content: center; 
+        align-items: center;
+        gap: 20px; /* Photo aur Text ke beech ka gap yahan se control hoga */
+        padding: 20px;
     }
     
     .reel-container { 
@@ -195,10 +200,17 @@ h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #f1c40f; 
 
     /* Isse photos phone par dabi hui (stretched) nahi dikhengi */
     .content-box { 
-        width: 85%; 
+        /* width: 85%; 
         padding: 20px 15px;
-        margin-top: auto; /* Text ko thoda neeche push karega taaki chehra dikhe */
-        margin-bottom: 50px;
+        margin-top: auto; 
+        margin-bottom: 50px; */
+
+        width: 90%; 
+        padding: 20px;
+        margin: 0 auto !important; /* Horizontally center */
+        order: 2; /* Text photo ke neeche aayega */
+        text-align: center;
+        backdrop-filter: blur(10px);
     }
 
     h1 { font-size: 1.7rem !important; }
@@ -206,9 +218,16 @@ h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #f1c40f; 
 
     /* Frame fix for mobile */
     .frame { 
-        width: 200px; 
+        /* width: 200px; 
         height: 280px; 
-        margin: 10px auto;
+        margin: 10px auto; */
+
+
+        width: 240px; /* Mobile ke liye perfect size */
+        height: 310px; 
+        margin: 0 auto !important; /* Horizontally center */
+        transform: rotate(-2deg); /* Thoda aesthetic tilt */
+        order: 1; /* Photo pehle dikhegi */
     }
     
     /* Cake alignment fix */
