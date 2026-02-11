@@ -111,32 +111,66 @@ const photos = ['images/photo1.jpg', 'images/photo2.jpg', 'images/photo3.jpg', '
 //     }, 1000);
 // }
 
+// index.js mein update karein
+const bgMusic = document.getElementById('bg-music');
+
+// Page load hote hi download shuru
+window.onload = () => {
+    bgMusic.load();
+};
+
 function openGift() {
-    const bgMusic = document.getElementById('bg-music');
+    // const bgMusic = document.getElementById('bg-music');
+    // const intro = document.getElementById('intro-screen');
+    // const main = document.getElementById('main-site');
+
+    // Music ko background mein pehle hi load hone dein
+    // bgMusic.load(); 
+
+    // intro.style.opacity = "0";
+    // setTimeout(() => {
+    //     intro.style.display = "none";
+    //     main.style.visibility = "visible";
+    //     main.style.opacity = "1";
+        
+    //     bgMusic.currentTime = 20; 
+        
+        // play() promise handle karein taaki error na aaye
+    //     let playPromise = bgMusic.play();
+    //     if (playPromise !== undefined) {
+    //         playPromise.then(_ => {
+    //             console.log("Music started!");
+    //         }).catch(error => {
+    //             console.log("Autoplay blocked, waiting for user interaction");
+    //         });
+    //     }
+    // }, 1000);.
+
+
+
     const intro = document.getElementById('intro-screen');
     const main = document.getElementById('main-site');
 
-    // Music ko background mein pehle hi load hone dein
-    bgMusic.load(); 
+    bgMusic.currentTime = 20; 
+    let playPromise = bgMusic.play();
 
-    intro.style.opacity = "0";
-    setTimeout(() => {
-        intro.style.display = "none";
-        main.style.visibility = "visible";
-        main.style.opacity = "1";
-        
-        bgMusic.currentTime = 20; 
-        
-        // play() promise handle karein taaki error na aaye
-        let playPromise = bgMusic.play();
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                console.log("Music started!");
-            }).catch(error => {
-                console.log("Autoplay blocked, waiting for user interaction");
-            });
-        }
-    }, 1000);
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+            // Jab music start ho jaye, tabhi transition karo
+            intro.style.opacity = "0";
+            setTimeout(() => {
+                intro.style.display = "none";
+                main.style.visibility = "visible";
+                main.style.opacity = "1";
+                AOS.refresh(); 
+            }, 1000);
+        }).catch(e => {
+            // Agar browser music block kare toh skip karke site dikhao
+            intro.style.display = "none";
+            main.style.visibility = "visible";
+            main.style.opacity = "1";
+        });
+    }
 }
 
 
