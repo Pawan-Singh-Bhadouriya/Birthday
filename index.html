@@ -1,0 +1,249 @@
+<!-- <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ShruTea! 🎂</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;1,700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/jpeg" href="images/photo3.jpg">
+
+</head>
+
+<body>
+
+
+
+<audio id="bday-song" loop preload="auto">
+
+    <source src="mp3/birthday_song.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+    <section>
+
+        <div class="reel-container slide-lr" id="reel1"></div>
+
+        <div class="fav-icon" style="top: 10%; left: 8%;">☕</div>
+
+        <div class="content-box" data-aos="fade-down">
+
+            <h1>Happy Birthday ShruTea...</h1>
+
+            <p class="quote">"Aao Tumhe Twinkle Twinkle 2.0 sunata hu...."</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section>
+
+        <div class="reel-container slide-rl" id="reel2"></div>
+
+        <div class="fav-icon" style="top: 15%; right: 10%;">🍕</div>
+
+        <div class="frame" data-aos="zoom-in">
+
+            <img src="images/photo1.jpg" alt="Memory">
+
+        </div>
+
+        <div class="content-box"><p class="quote">"Twinkle twinkle, birthday star, Shine exactly as you are."</p></div>
+
+    </section>
+
+
+
+    <section>
+
+        <div class="reel-container slide-lr" id="reel3"></div>
+
+        <div class="fav-icon" style="bottom: 10%; left: 5%;">☕</div>
+
+        <div class="frame" data-aos="fade-right">
+
+            <img src="images/photo2.jpg" alt="Memory">
+
+        </div>
+
+        <div class="content-box"><p class="quote">"Keep that smile, it’s a lovely sight, Keep your head up, hold on tight."</p></div>
+
+    </section>
+
+
+
+    <section>
+
+        <div class="reel-container slide-rl" id="reel4"></div>
+
+        <div class="fav-icon" style="top: 10%; left: 5%;">🍕</div>
+
+        <div class="frame" data-aos="fade-left">
+
+            <img src="images/photo3.jpg" alt="Memory">
+
+        </div>
+
+        <div class="content-box"><p class="quote">"If the path feels hard to do, I’m walking right beside you."</p></div>
+
+    </section>
+
+
+
+    <section>
+
+    <div class="vertical-reel" id="v-reel"></div>
+
+    <div class="content-box" data-aos="zoom-out">
+
+        <h1>Make a Wish!</h1>
+
+        <p style="opacity: 0.9; color: #f1c40f; font-weight: bold;">Click on the cake for a surprise!</p>
+
+       
+
+        <div onclick="celebrate()" class="f1-cake-container">
+
+            <img src="images/cake-overlay.png" alt="F1 Car Cake" class="f1-car">
+
+            <div class="flame" id="flame-left"></div>
+
+            <div class="flame" id="flame-right"></div>
+
+        </div>
+
+
+
+        <div id="wish-msg">
+
+            <h1 style="color:#f1c40f;">Happy Birthday Madam jii! 🎂✨</h1>
+
+            <p class="quote">Full speed ahead to a great year!</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ShruTea jiii! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;1,700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/f1-favicon.png"> 
+</head>
+<body>
+
+<div id="intro-screen">
+    <div class="gift-container" onclick="openGift()">
+        <div class="gift-box">
+            <div class="gift-lid"></div>
+            <div class="gift-ribbon"></div>
+        </div>
+        <p class="tap-text">A Gift for You... Tap to Open!</p>
+    </div>
+</div>
+
+<audio id="bg-music" loop preload="auto">
+    <source src="mp3/background_music2.mp3" type="audio/mpeg">
+</audio>
+<audio id="bday-song" loop preload="auto">
+    <source src="mp3/birthday_song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="main-site" style="visibility: hidden; opacity: 0;">
+    <section>
+        <div class="reel-container slide-lr" id="reel1"></div>
+        <div class="fav-icon" style="top: 10%; left: 8%;">☕</div>
+        <div class="content-box" data-aos="fade-down">
+            <h1>Happy Birthday ShruTea Jiiiii...</h1>
+            <p class="quote">"Aao Tumhe Twinkle Twinkle 2.0 sunata hu...."</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="reel-container slide-rl" id="reel2"></div>
+        <div class="fav-icon" style="top: 15%; right: 10%;">🎈</div>
+        <div class="frame" data-aos="zoom-in">
+            <img src="images/photo1.jpg" alt="Memory">
+        </div>
+        <div class="content-box"><p class="quote">"Twinkle twinkle, birthday star, Shine exactly as you are."</p></div>
+    </section>
+
+    <section>
+        <div class="reel-container slide-lr" id="reel3"></div>
+        <div class="fav-icon" style="bottom: 24%; left: 5%;">🏎️</div>
+        <div class="frame" data-aos="fade-right">
+            <img src="images/photo2.jpg" alt="Memory">
+        </div>
+        <div class="content-box"><p class="quote">"Keep that smile, it’s a lovely sight, Keep your head up, hold on tight."</p></div>
+    </section>
+
+    <section>
+        <div class="reel-container slide-rl" id="reel4"></div>
+        <div class="fav-icon" style="top: 10%; left: 5%;">🍕</div>
+        <div class="frame" data-aos="fade-left">
+            <img src="images/photo3.jpg" alt="Memory">
+        </div>
+        <div class="content-box"><p class="quote">"If the path feels hard to do, I’m walking right beside you."</p></div>
+    </section>
+
+    <section>
+        <div class="vertical-reel" id="v-reel"></div>
+        <div class="content-box" data-aos="zoom-out">
+            <h1>Make a Wish!</h1>
+            <p style="opacity: 0.9; color: #f1c40f; font-weight: bold;">Click on the cake for a surprise!</p>
+            
+            <div onclick="celebrate()" class="f1-cake-container">
+                <img src="images/cake-overlay.png" alt="Chocolate Cake" class="f1-car">
+                <div class="flame" id="flame-left"></div>
+                <div class="flame" id="flame-right"></div>
+            </div>
+
+            <div id="wish-msg">
+                <h1 style="color:#f1c40f;">Happy Birthday Madam jii! 🎂✨</h1>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

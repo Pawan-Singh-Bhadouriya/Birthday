@@ -1,0 +1,222 @@
+:root { --card-bg: #fffcf2; }
+
+body, html { margin: 0; padding: 0; background: #000; color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+
+/* --- Intro Screen & Gift --- */
+#intro-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #111; display: flex; justify-content: center; align-items: center;
+    z-index: 10000; transition: 1s ease;
+}
+.gift-container { text-align: center; cursor: pointer; }
+.gift-box { width: 150px; height: 150px; background: #e74c3c; position: relative; margin: 0 auto; animation: shake 2s infinite; }
+.gift-lid { width: 170px; height: 40px; background: #c0392b; position: absolute; top: -10px; left: -10px; z-index: 2; }
+.gift-ribbon { width: 30px; height: 100%; background: #f1c40f; position: absolute; left: 60px; }
+.tap-text { color: #f1c40f; font-family: 'Dancing Script'; font-size: 1.8rem; margin-top: 20px; }
+@keyframes shake { 0%, 100% { transform: rotate(0); } 20%, 60% { transform: rotate(5deg); } 40%, 80% { transform: rotate(-5deg); } }
+
+/* --- Layout --- */
+section { min-height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+.reel-container { position: absolute; top: 0; left: 0; display: flex; height: 100%; width: 600%; opacity: 0.8; }
+.reel-item { flex: 1; height: 100%; background-size: cover; background-position: center; border-right: 2px solid #222; }
+.vertical-reel { position: absolute; top: 0; left: 0; width: 100%; height: 400%; display: flex; flex-direction: column; opacity: 0.9; animation: slideDownReel 30s linear infinite; }
+.v-item { width: 100%; height: 25%; background-position: center; background-repeat: no-repeat; background-size: contain; position: relative; background-color: #000; }
+.v-item::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: inherit; background-size: cover; filter: blur(20px) brightness(0.4); opacity: 0.8; }
+@keyframes slideDownReel { 0% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
+
+/* --- UI --- */
+.content-box { background: rgba(0, 0, 0, 0.45); padding: 30px; border-radius: 20px; backdrop-filter: blur(6px); width: 85%; max-width: 750px; border: 1px solid rgba(255,255,255,0.15); z-index: 5; }
+h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #f1c40f; }
+.quote { font-family: 'Dancing Script', cursive; font-size: 1.8rem; }
+.frame { width: 260px; height: 340px; background: var(--card-bg); padding: 12px; padding-bottom: 55px; box-shadow: 0 15px 35px rgba(0,0,0,0.8); transform: rotate(-3deg); margin-bottom: 25px; }
+.frame img { width: 100%; height: 100%; object-fit: cover; }
+.fav-icon { position: absolute; font-size: 3rem; animation: float 4s ease-in-out infinite; z-index: 10; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* --- Flowers Fix --- */
+.flower { position: fixed; top: -50px; z-index: 9999; pointer-events: none; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+/* --- Cake & Flames --- */
+.f1-cake-container { position: relative; width: 320px; margin: 20px auto; cursor: pointer; }
+.f1-car { width: 100%; height: auto; display: block; }
+.flame { width: 12px; height: 20px; background: #f1c40f; border-radius: 50% 50% 35% 35%; position: absolute; box-shadow: 0 0 15px #f1c40f; animation: flicker 0.1s infinite; z-index: 10; }
+#flame-left { top: 15%; left: 36%; transform: translateX(-50%); }
+#flame-right { top: 12%; left: 67%; transform: translateX(-50%); }
+@keyframes flicker { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+#wish-msg {
+    display: none; /* JS se block hoga */
+    position: absolute;
+    top: 30px; /* Wahi position jahan H1 (Make a Wish) tha */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    z-index: 10;
+}
+
+#wish-msg h1 {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Horizontal Reels Animation --- */
+.reel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 100%;
+    width: 600%; /* Zyada width taaki photos line se chalein */
+    opacity: 0.8;
+}
+
+.reel-item {
+   flex: 1;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Desktop par sahi dikhega */
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid #222;
+}
+
+/* Slide Left to Right */
+.slide-lr { animation: slideLR 40s linear infinite; }
+/* Slide Right to Left */
+.slide-rl { animation: slideRL 40s linear infinite; }
+
+@keyframes slideLR { 
+    0% { transform: translateX(-50%); } 
+    100% { transform: translateX(0); } 
+}
+
+@keyframes slideRL { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); } 
+}
+
+@media (max-width: 768px) {
+     .content-box { 
+        padding: 15px; 
+        width: 90%; 
+    }
+
+    .frame { 
+        width: 180px; 
+        height: 240px; 
+        padding-bottom: 40px; 
+    }
+    section {
+        min-height: 80vh; 
+    }
+
+    .reel-container {
+        width: 1000%; /* Zyada width taaki scroll smooth ho aur photos badi dikhein */
+    }
+
+    .reel-item {
+        background-size: contain; /* Isse photo poori dikhegi, kategi nahi */
+        background-color: #000;
+    }
+
+    /* Side mein blurred background add karne ke liye */
+    .reel-item::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: inherit;
+        background-size: cover;
+        filter: blur(15px) brightness(0.5);
+        z-index: -1;
+    }
+
+    /* Font size ko thoda aur balance karte hain */
+    h1 { 
+        font-size: 1.8rem; 
+        padding: 0 10px;
+    }
+    
+    .quote { 
+        font-size: 1.4rem; 
+        padding: 0 15px;
+    }
+
+    .content-box {
+        width: 92%;
+        padding: 20px 10px;
+    }
+
+    /* Cake container mobile par center alignment */
+    .f1-cake-container {
+        width: 280px; /* Thoda bada kiya phone ke liye */
+    }
+    
+    /* Flames Alignment for Mobile */
+    #flame-left { top: 15%; left: 36%; }
+    #flame-right { top: 12%; left: 67%; }
+
+    /* Gift Box for Mobile */
+    .gift-box { width: 100px; height: 100px; }
+    .gift-lid { width: 120px; left: -10px; }
+    .gift-ribbon { left: 35px; width: 20px; }
+}
+
+
+
+/* ======================================================
+   MOBILE FIXES (KEEP THIS AT THE BOTTOM)
+   ====================================================== */
+@media (max-width: 768px) {
+    section { 
+        min-height: 100vh; /* Har section poori screen cover karega */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .reel-container { 
+        width: 1200%; 
+        height: 100% !important; /* Force height */
+    }
+
+    .reel-item {
+        height: 100% !important;
+        background-size: cover; /* Width 100% cover karega */
+        background-position: center center; /* Photo ka beech ka hissa dikhega */
+        background-repeat: no-repeat;
+        flex: 1;
+        min-width: 100vw; /* Ek photo ek baar mein poori screen le sakti hai */
+    }
+
+    /* Isse photos phone par dabi hui (stretched) nahi dikhengi */
+    .content-box { 
+        width: 85%; 
+        padding: 20px 15px;
+        margin-top: auto; /* Text ko thoda neeche push karega taaki chehra dikhe */
+        margin-bottom: 50px;
+    }
+
+    h1 { font-size: 1.7rem !important; }
+    .quote { font-size: 1.2rem !important; }
+
+    /* Frame fix for mobile */
+    .frame { 
+        width: 200px; 
+        height: 280px; 
+        margin: 10px auto;
+    }
+    
+    /* Cake alignment fix */
+    .f1-cake-container { width: 260px; }
+    #flame-left { top: 15%; left: 36%; }
+    #flame-right { top: 12%; left: 67%; }
+
+    #wish-msg {
+        top: 20px; /* Mobile par thoda upar */
+    }
+}
