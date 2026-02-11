@@ -89,25 +89,53 @@ AOS.init({ duration: 1200 });
 const photos = ['images/photo1.jpg', 'images/photo2.jpg', 'images/photo3.jpg', 'images/photo4.jpg', 'images/photo5.jpg', 'images/photo6.jpg'];
 
 // Gift Open aur Music Logic
+// function openGift() {
+//     const bgMusic = document.getElementById('bg-music');
+//     const intro = document.getElementById('intro-screen');
+//     const main = document.getElementById('main-site');
+
+//     // Gift animation aur transition
+//     intro.style.opacity = "0";
+//     setTimeout(() => {
+//         intro.style.display = "none";
+//         main.style.visibility = "visible";
+//         main.style.opacity = "1";
+        
+//         // --- Music starting point fix ---
+//         // 2 minute 10 second = 130 seconds
+//         // bgMusic.currentTime = 130; this is for background_music.mp3
+        
+//         bgMusic.currentTime = 20; // this is for background_music2.mp3 
+
+//         bgMusic.play().catch(e => console.log("Music play blocked by browser."));
+//     }, 1000);
+// }
+
 function openGift() {
     const bgMusic = document.getElementById('bg-music');
     const intro = document.getElementById('intro-screen');
     const main = document.getElementById('main-site');
 
-    // Gift animation aur transition
+    // Music ko background mein pehle hi load hone dein
+    bgMusic.load(); 
+
     intro.style.opacity = "0";
     setTimeout(() => {
         intro.style.display = "none";
         main.style.visibility = "visible";
         main.style.opacity = "1";
         
-        // --- Music starting point fix ---
-        // 2 minute 10 second = 130 seconds
-        // bgMusic.currentTime = 130; this is for background_music.mp3
+        bgMusic.currentTime = 20; 
         
-        bgMusic.currentTime = 20; // this is for background_music2.mp3 
-
-        bgMusic.play().catch(e => console.log("Music play blocked by browser."));
+        // play() promise handle karein taaki error na aaye
+        let playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                console.log("Music started!");
+            }).catch(error => {
+                console.log("Autoplay blocked, waiting for user interaction");
+            });
+        }
     }, 1000);
 }
 
