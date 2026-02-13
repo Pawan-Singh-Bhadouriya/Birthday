@@ -151,7 +151,7 @@ function openGift() {
     const intro = document.getElementById('intro-screen');
     const main = document.getElementById('main-site');
 
-    bgMusic.currentTime = 20; 
+    bgMusic.currentTime = 15; 
     let playPromise = bgMusic.play();
 
     if (playPromise !== undefined) {
